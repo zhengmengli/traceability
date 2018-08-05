@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="ws">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>遵化农产品追溯</title>
+    <link type="text/css" href="../../libs/layui/css/layui.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/leftBar.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/baseInfo.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- start header.html-->
+<div class="header">
+    <div class="header-box clearfix">
+    	<a class="header-left" href="">
+    		<i class="logo"></i>
+    		<span>农产品溯源服务平台</span>
+    	</a>
+        <div class="header-right">
+            <div class="user-info">
+            	<i class="user-logo"></i>
+            	<span class="user-name">欢迎
+	            	<span th:href="@{/sysUser/profile}" sec:authentication="name"></span>登录<!-- ，您已登录1小时10分 -->
+            	</span>
+            </div>
+            <div class="person-set">
+            <a class="exit" href="/sysUser/forgotPassword">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">修改密码</span></a>
+            </div>
+            <a class="exit" href="/logout">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">退出</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- end header.html-->
+    <div class="main-wrap clearfix">
+<!-- start left-bar.html-->
+<div class='left-bar fl'>
+    <ul class="nav">
+        <li>
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon1"></i><span>首页</span></a>
+        </li>
+        <li class="active">
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon2"></i><span>采购管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../purchasingManagement/purchasingManagement.html">动物采购</a>
+                </li>
+                <li>
+                    <a href="../purchasingManagement/supplier.html">供应商信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../breedManagement/farmSurveillance.html" class="itemTitle"><i class="leftIcon leftIcon3"></i><span>养殖管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../breedManagement/farmSurveillance.html">养殖场监控</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/animalFeeding.html">动物养殖</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/archivesAnimal.html">动物档案</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/historicalFiles.html">历史档案</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../LOTManagement/equipManagement.html" class="itemTitle"><i class="leftIcon leftIcon4"></i><span>物联网管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../LOTManagement/equipManagement.html">设备管理</a>
+                </li>
+                <li>
+                    <a href="../LOTManagement/vdoimgManagement.html">视频图片</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../slaughterManagement/slaughterAnimal.html" class="itemTitle"><i class="leftIcon leftIcon5"></i><span>屠宰管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../slaughterManagement/slaughterAnimal.html">动物屠宰</a>
+                </li>
+                <li>
+                    <a href="../slaughterManagement/slaughterhouse.html">屠宰场信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../sourceCodeManagement/sourceCodeManagement.html" class="itemTitle"><i class="leftIcon leftIcon6"></i><span>溯源码管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../sourceCodeManagement/sourceCodeManagement.html">溯源码管理</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/animalSourceCode.html">动物溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/meatSourceCode.html">肉类溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/eggsSourceCode.html">蛋类溯源码打印</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../productManagement/partitionTemplate.html" class="itemTitle"><i class="leftIcon leftIcon7"></i><span>产品管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../productManagement/partitionTemplate.html">分割模板管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/splitPackage.html">分割包装</a>
+                </li>
+                <li>
+                    <a href="../productManagement/meatProductManagement.html">肉产品管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/eggsProduct.html">蛋类产品</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../salesManagement/livePoultrySales.html" class="itemTitle"><i class="leftIcon leftIcon8"></i><span>销售管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../salesManagement/livePoultrySales.html">活畜禽销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/meatSales.html">肉产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/eggSales.html">蛋产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/customerInformation.html">客户信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../materialManagement/feedManagement.html" class="itemTitle"><i class="leftIcon leftIcon9"></i><span>物料管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../materialManagement/feedManagement.html">饲料管理</a>
+                </li>
+                <li>
+                    <a href="../materialManagement/medicineManagement.html">兽药管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../baseInfo/animalSpeciesManagement.html" class="itemTitle"><i class="leftIcon leftIcon10"></i><span>基础信息</span></a>
+            <ul class="listText">
+                <!--<li>-->
+                <!--<a href="">企业信息</a>-->
+                <!--</li>-->
+                <li class="active">
+                    <a href="../baseInfo/animalSpeciesManagement.html">动物品种管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/poultryProductManagement.html">禽畜产品管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/raiseFarmManagement.html">养殖场地管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/labelType.html">标签种类</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/packageSize.html">包装规格</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="" class="itemTitle"><i class="leftIcon leftIcon11"></i><span>系统管理</span></a>
+        </li>
+    </ul>
+</div>
+<!-- end left-bar.html-->
+        <div class="right-content fl">
+            <div class="form-item itemPad">
+                <form action="" class="layui-form">
+                    <div class="basicInfo">
+                        <h2>新增</h2>
+                        <ul class="detailList">
+                            <li>
+                                <span class="titleDetail">养殖场地编号：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">养殖场地名称：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">二维码编号：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="1235123214" class="layui-input" disabled="disabled">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">养殖场地址：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">设计存栏量：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">常年存栏量：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">动物种类：</span>
+                                <div class="inputDetail">
+                                    <select name="" lay-filter="aihao" id="">
+                                        <option value="">牛</option>
+                                        <option value="1">猪</option>
+                                        <option value="2">鸡</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">状态：</span>
+                                <div class="inputDetail">
+                                    <select name="" lay-filter="aihao" id="">
+                                        <option value="1">启用</option>
+                                        <option value="2">停用</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">负责人：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">联系电话：</span>
+                                <div class="inputDetail">
+                                    <input type="text" value="" class="layui-input">
+                                </div>
+                            </li>
+                            <li>
+                                <span class="titleDetail">图片上传：</span>
+                                <div class="inputDetail clearfix" style="height:auto;">
+                                    <ul class="picList fl clearfix">
+                                        <li><img width="130" height="170" src="../../img/upload-pic.png" alt=""><span class="delPic">x</span></li>
+                                    </ul>
+                                    <button type="button" class="layui-btn fl" id="test2">图片上传</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="submitBtn">
+                        <a href="" class="submit">保存</a>
+                        <span class="cancel">取消</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- start footer.html-->
+
+<div class="footer">
+    <p>Copyright Jusfoun.com © 2016-2017 河北遵化溯源大数据信息技术有限公司</p>
+    <p>技术支持 九次方大数据信息集团有限公司</p>
+</div>
+<!-- end footer.html-->
+    <script src='../../js/common/jquery.js'></script>
+    <script src='../../libs/layui/layui.js'></script>
+    <script src='../../js/common/common.js'></script>
+    <script src='../../js/baseInfo/raiseFarmManagement-add.js'></script>
+</body>

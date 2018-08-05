@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="ws">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>遵化农产品追溯</title>
+    <link type="text/css" href="../../libs/layui/css/layui.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/leftBar.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/index.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/purchasingManagement.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- start header.html-->
+<div class="header">
+    <div class="header-box clearfix">
+    	<a class="header-left" href="">
+    		<i class="logo"></i>
+    		<span>农产品溯源服务平台</span>
+    	</a>
+        <div class="header-right">
+            <div class="user-info">
+            	<i class="user-logo"></i>
+            	<span class="user-name">欢迎
+	            	<span th:href="@{/sysUser/profile}" sec:authentication="name"></span>登录<!-- ，您已登录1小时10分 -->
+            	</span>
+            </div>
+            <div class="person-set">
+            <a class="exit" href="/sysUser/forgotPassword">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">修改密码</span></a>
+            </div>
+            <a class="exit" href="/logout">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">退出</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- end header.html-->
+<div class="main-wrap clearfix">
+<!-- start left-bar.html-->
+<div class='left-bar fl'>
+    <ul class="nav">
+        <li>
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon1"></i><span>首页</span></a>
+        </li>
+        <li class="active">
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon2"></i><span>采购管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../purchasingManagement/purchasingManagement.html">动物采购</a>
+                </li>
+                <li>
+                    <a href="../purchasingManagement/supplier.html">供应商信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../breedManagement/farmSurveillance.html" class="itemTitle"><i class="leftIcon leftIcon3"></i><span>养殖管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../breedManagement/farmSurveillance.html">养殖场监控</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/animalFeeding.html">动物养殖</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/archivesAnimal.html">动物档案</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/historicalFiles.html">历史档案</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../LOTManagement/equipManagement.html" class="itemTitle"><i class="leftIcon leftIcon4"></i><span>物联网管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../LOTManagement/equipManagement.html">设备管理</a>
+                </li>
+                <li>
+                    <a href="../LOTManagement/vdoimgManagement.html">视频图片</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../slaughterManagement/slaughterAnimal.html" class="itemTitle"><i class="leftIcon leftIcon5"></i><span>屠宰管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../slaughterManagement/slaughterAnimal.html">动物屠宰</a>
+                </li>
+                <li>
+                    <a href="../slaughterManagement/slaughterhouse.html">屠宰场信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../sourceCodeManagement/sourceCodeManagement.html" class="itemTitle"><i class="leftIcon leftIcon6"></i><span>溯源码管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../sourceCodeManagement/sourceCodeManagement.html">溯源码管理</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/animalSourceCode.html">动物溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/meatSourceCode.html">肉类溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/eggsSourceCode.html">蛋类溯源码打印</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../productManagement/partitionTemplate.html" class="itemTitle"><i class="leftIcon leftIcon7"></i><span>产品管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../productManagement/partitionTemplate.html">分割模板管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/splitPackage.html">分割包装</a>
+                </li>
+                <li>
+                    <a href="../productManagement/meatProductManagement.html">肉产品管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/eggsProduct.html">蛋类产品</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../salesManagement/livePoultrySales.html" class="itemTitle"><i class="leftIcon leftIcon8"></i><span>销售管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../salesManagement/livePoultrySales.html">活畜禽销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/meatSales.html">肉产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/eggSales.html">蛋产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/customerInformation.html">客户信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../materialManagement/feedManagement.html" class="itemTitle"><i class="leftIcon leftIcon9"></i><span>物料管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../materialManagement/feedManagement.html">饲料管理</a>
+                </li>
+                <li>
+                    <a href="../materialManagement/medicineManagement.html">兽药管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../baseInfo/animalSpeciesManagement.html" class="itemTitle"><i class="leftIcon leftIcon10"></i><span>基础信息</span></a>
+            <ul class="listText">
+                <!--<li>-->
+                <!--<a href="">企业信息</a>-->
+                <!--</li>-->
+                <li class="active">
+                    <a href="../baseInfo/animalSpeciesManagement.html">动物品种管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/poultryProductManagement.html">禽畜产品管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/raiseFarmManagement.html">养殖场地管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/labelType.html">标签种类</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/packageSize.html">包装规格</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="" class="itemTitle"><i class="leftIcon leftIcon11"></i><span>系统管理</span></a>
+        </li>
+    </ul>
+</div>
+<!-- end left-bar.html-->
+    <div class="right-content fl">
+        <div class="top-tab"><a onclick="addSupplier();">基本信息</a><a class="active">资质信息</a></div>
+        <div class="tab-content">
+            <div class=" form-item zizhi-item">
+                <form class="layui-form zihi-form">
+                    <div class="radio-wrapper">
+                        <input type="radio" id="radio1" name="sex" value="通用资质" title="通用资质" checked="checked" />
+                        <input type="radio" id="radio2" name="sex" value="无公害畜产品" title="无公害畜产品" />
+                        <input type="radio" id="radio3" name="sex" value="绿色畜产品" title="绿色畜产品" />
+                        <input type="radio" id="radio4" name="sex" value="有机畜产品" title="有机畜产品" />
+                        <input type="radio" id="radio5" name="sex" value="动物防疫条件合格证" title="动物防疫条件合格证" />
+                    </div>
+                </form>
+                <div class="qualifica-search">
+                    <div class="search-box"><span>证书名称：</span><input type="text" id="zsName" /></div>
+                    <div class="btn-area">
+                        <div class="search" onclick="query();"><i></i><span>查询</span></div>
+                        <div class="add" onclick="zizhi1Add()"><i></i><span>新增</span></div>
+                    </div>
+                </div>
+                <div class="add-block">
+                    <div class="btn-area">
+                        <div class="add"><a id="zizhiAdd"><i></i><span>新增</span></a></div>
+                    </div>
+                </div>
+                <input type="hidden" id="providerid" name="providerid" value="b59e7964b9d84c558fa27a0e30695ba5" />
+                <input type="hidden" id="type" name="type" value="" />
+
+                <div class="tablewrap">
+                    <div class="table-wrap" id="tableWrap1">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>证书名称</th>
+                                <th>颁证日期</th>
+                                <th>有效期至</th>
+                                <th>颁发机构</th>
+                                <th>证书附件</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="qualificationslist1">
+                                <tr>
+                                    <td>1</td>
+                                    <td>荣誉墙</td>
+                                    <td>2001-01-01</td>
+                                    <td>2099-01-01</td>
+                                    <td>荣誉墙</td>
+                                    <td><a class="preview" photos="null">预览</a></td></td>
+                                    <td>
+                                        <a class="fix" href="./zizhi1-fix.html">修改</a>
+                                        <a class="del" onclick="del('276f50a532c54caf98a726396f949f45')"> 删除</a>
+                                        <a class="check" href="./zizhi1-check.html"> 查看</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--无公害畜产品-->
+                    <div class="table-wrap" id="tableWrap2">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>产品名称</th>
+                                <th>批准产量(吨)</th>
+                                <th>有效期限</th>
+                                <th>签发单位</th>
+                                <th>证书附件</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="qualificationslist2">
+                            <tr>
+                                <td>黄瓜、番茄等</td>
+                                <td>6141</td>
+                                <td>2016-05-01 2019-05-01</td>
+                                <td>河北省农业厅</td>
+                                <td><a class="preview" photos="null">预览</a></td></td>
+                                <td>
+                                    <a class="fix" href="./zizhi2-fix.html">修改</a>
+                                    <a class="del" onclick="del('276f50a532c54caf98a726396f949f45')"> 删除</a>
+                                    <a class="check" href="./zizhi2-check.html"> 查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--绿色畜产品-->
+                    <div class="table-wrap" id="tableWrap3">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>产品名称</th>
+                                <th>生产商</th>
+                                <th>批准产量(吨)</th>
+                                <th>有效期限</th>
+                                <th>颁证机构</th>
+                                <th>证书附件</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="qualificationslist3">
+                            <tr>
+                                <td>LB-15-1620037476A</td>
+                                <td>唐山尚禾源农业开发</td>
+                                <td>4740</td>
+                                <td>2016-10-27 2019-10-27</td>
+                                <td>中国绿色食品发展中心</td>
+                                <td><a class="preview" photos="null">预览</a></td></td>
+                                <td>
+                                    <a class="fix" href="./zizhi3-fix.html">修改</a>
+                                    <a class="del" onclick="del('276f50a532c54caf98a726396f949f45')"> 删除</a>
+                                    <a class="check" href="./zizhi3-check.html"> 查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--有机畜产品-->
+                    <div class="table-wrap" id="tableWrap4">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>认证类别</th>
+                                <th>产品名称</th>
+                                <th>批准产量(吨)</th>
+                                <th>有效期限</th>
+                                <th>颁证机构</th>
+                                <th>证书附件</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="qualificationslist4">
+                            <tr>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>2015/10-2017/10</td>
+                                <td>xxx</td>
+                                <td><a class="preview" photos="null">预览</a></td></td>
+                                <td>
+                                    <a class="fix" href="./zizhi4-fix.html">修改</a>
+                                    <a class="del" onclick="del('276f50a532c54caf98a726396f949f45')"> 删除</a>
+                                    <a class="check" href="./zizhi4-check.html"> 查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--动物防疫条件合格证-->
+                    <div class="table-wrap " id="tableWrap5">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>证件编号</th>
+                                <th>单位名称</th>
+                                <th>发证机关</th>
+                                <th>发证日期</th>
+                                <th>有效期限</th>
+                                <th>证书附件</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="qualificationslist5">
+                            <tr>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td>xxx</td>
+                                <td><a class="preview" photos="null">预览</a></td></td>
+                                <td>
+                                    <a class="fix" href="./zizhi5-fix.html">修改</a>
+                                    <a class="del" onclick="del('276f50a532c54caf98a726396f949f45')"> 删除</a>
+                                    <a class="check" href="./zizhi5-check.html"> 查看</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="cancel cancel1" onclick="history.go(-1)"><span>返回</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- start footer.html-->
+
+<div class="footer">
+    <p>Copyright Jusfoun.com © 2016-2017 河北遵化溯源大数据信息技术有限公司</p>
+    <p>技术支持 九次方大数据信息集团有限公司</p>
+</div>
+<!-- end footer.html-->
+<script src='../../js/common/jquery.js'></script>
+<script src='../../libs/layui/layui.js'></script>
+<script src='../../js/common/common.js'></script>
+<script src="http://api.map.baidu.com/api?v=2.0&amp;ak=Bd55XdcjoedHhlwaLoGGeIGKxA3EneDV"></script>
+<script src='../../js/purchasingManagement/zizhi.js'></script>
+</body>

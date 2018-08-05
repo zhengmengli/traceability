@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="ws">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>遵化农产品追溯</title>
+    <link type="text/css" href="../../libs/layui/css/layui.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/commonn.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/leftBar.css" rel="stylesheet">
+    <link type="text/css" href="../../css/less/sourceCodeManagement.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- start header.html-->
+<div class="header">
+    <div class="header-box clearfix">
+    	<a class="header-left" href="">
+    		<i class="logo"></i>
+    		<span>农产品溯源服务平台</span>
+    	</a>
+        <div class="header-right">
+            <div class="user-info">
+            	<i class="user-logo"></i>
+            	<span class="user-name">欢迎
+	            	<span th:href="@{/sysUser/profile}" sec:authentication="name"></span>登录<!-- ，您已登录1小时10分 -->
+            	</span>
+            </div>
+            <div class="person-set">
+            <a class="exit" href="/sysUser/forgotPassword">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">修改密码</span></a>
+            </div>
+            <a class="exit" href="/logout">
+	            <i class="person-set-logo"></i>
+	            <span class="person-set-tit">退出</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- end header.html-->
+    <div class="main-wrap clearfix">
+<!-- start left-bar.html-->
+<div class='left-bar fl'>
+    <ul class="nav">
+        <li>
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon1"></i><span>首页</span></a>
+        </li>
+        <li class="active">
+            <a href="../purchasingManagement/purchasingManagement.html" class="itemTitle"><i class="leftIcon leftIcon2"></i><span>采购管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../purchasingManagement/purchasingManagement.html">动物采购</a>
+                </li>
+                <li>
+                    <a href="../purchasingManagement/supplier.html">供应商信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../breedManagement/farmSurveillance.html" class="itemTitle"><i class="leftIcon leftIcon3"></i><span>养殖管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../breedManagement/farmSurveillance.html">养殖场监控</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/animalFeeding.html">动物养殖</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/archivesAnimal.html">动物档案</a>
+                </li>
+                <li>
+                    <a href="../breedManagement/historicalFiles.html">历史档案</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../LOTManagement/equipManagement.html" class="itemTitle"><i class="leftIcon leftIcon4"></i><span>物联网管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../LOTManagement/equipManagement.html">设备管理</a>
+                </li>
+                <li>
+                    <a href="../LOTManagement/vdoimgManagement.html">视频图片</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../slaughterManagement/slaughterAnimal.html" class="itemTitle"><i class="leftIcon leftIcon5"></i><span>屠宰管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../slaughterManagement/slaughterAnimal.html">动物屠宰</a>
+                </li>
+                <li>
+                    <a href="../slaughterManagement/slaughterhouse.html">屠宰场信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../sourceCodeManagement/sourceCodeManagement.html" class="itemTitle"><i class="leftIcon leftIcon6"></i><span>溯源码管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../sourceCodeManagement/sourceCodeManagement.html">溯源码管理</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/animalSourceCode.html">动物溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/meatSourceCode.html">肉类溯源码打印</a>
+                </li>
+                <li>
+                    <a href="../sourceCodeManagement/eggsSourceCode.html">蛋类溯源码打印</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../productManagement/partitionTemplate.html" class="itemTitle"><i class="leftIcon leftIcon7"></i><span>产品管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../productManagement/partitionTemplate.html">分割模板管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/splitPackage.html">分割包装</a>
+                </li>
+                <li>
+                    <a href="../productManagement/meatProductManagement.html">肉产品管理</a>
+                </li>
+                <li>
+                    <a href="../productManagement/eggsProduct.html">蛋类产品</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../salesManagement/livePoultrySales.html" class="itemTitle"><i class="leftIcon leftIcon8"></i><span>销售管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../salesManagement/livePoultrySales.html">活畜禽销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/meatSales.html">肉产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/eggSales.html">蛋产品销售</a>
+                </li>
+                <li>
+                    <a href="../salesManagement/customerInformation.html">客户信息</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../materialManagement/feedManagement.html" class="itemTitle"><i class="leftIcon leftIcon9"></i><span>物料管理</span></a>
+            <ul class="listText">
+                <li class="active">
+                    <a href="../materialManagement/feedManagement.html">饲料管理</a>
+                </li>
+                <li>
+                    <a href="../materialManagement/medicineManagement.html">兽药管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="../baseInfo/animalSpeciesManagement.html" class="itemTitle"><i class="leftIcon leftIcon10"></i><span>基础信息</span></a>
+            <ul class="listText">
+                <!--<li>-->
+                <!--<a href="">企业信息</a>-->
+                <!--</li>-->
+                <li class="active">
+                    <a href="../baseInfo/animalSpeciesManagement.html">动物品种管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/poultryProductManagement.html">禽畜产品管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/raiseFarmManagement.html">养殖场地管理</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/labelType.html">标签种类</a>
+                </li>
+                <li>
+                    <a href="../baseInfo/packageSize.html">包装规格</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="" class="itemTitle"><i class="leftIcon leftIcon11"></i><span>系统管理</span></a>
+        </li>
+    </ul>
+</div>
+<!-- end left-bar.html-->
+        <div class="right-content fl">
+            <div class="form-item">
+                <form action="" class="layui-form">
+                    <ul class="form-list clearfix wid85">
+                        <li class="layui-inline">
+                            <span class="title-name">耳标编码：</span>
+                            <div class="text-input">
+                                <input type="text" class="layui-input">
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">防伪码：</span>
+                            <div class="text-input">
+                                <input type="text" class="layui-input">
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">溯源码种类：</span>
+                            <div class="text-input">
+                                <select name="" id="">
+                                    <option value="">全部</option>
+                                    <option value="1">活禽</option>
+                                    <option value="2">单类</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">状态：</span>
+                            <div class="text-input">
+                                <select name="" id="">
+                                    <option value="">未使用</option>
+                                    <option value="1">已使用</option>
+                                    <option value="2">已激活</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">申请时间：</span>
+                            <div class="text-input">
+                                <div class="start-time">
+                                    <input type="text" class="layui-input startTime">
+                                </div>
+                                <i class="line-time">-</i>
+                                <div class="end-time">
+                                    <input type="text" class="layui-input endTime">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">使用时间：</span>
+                            <div class="text-input">
+                                <div class="start-time">
+                                    <input type="text" class="layui-input startTime1">
+                                </div>
+                                <i class="line-time">-</i>
+                                <div class="end-time">
+                                    <input type="text" class="layui-input endTime1">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="layui-inline btn-rignt">
+                        </li>
+                        <li class="layui-inline btn-rignt">
+                            <span class="search-btn"><i class="search-icon"></i>查询</span>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="tablewrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>溯源码</th>
+                            <th>系统耳标号</th>
+                            <th>防伪码</th>
+                            <th>身份证号</th>
+                            <th>状态</th>
+                            <th>申请时间</th>
+                            <th>使用时间</th>
+                            <th>激活时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="odd">
+                            <td>1</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>1</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>1</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                        <tr class="even">
+                            <td>2</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>20180101001</td>
+                            <td>未使用</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                            <td>2018年1月1日</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="page-item clearfix">
+                <div class="totalNum fl">共找到<span class="numData">3</span>条记录</div>
+                <div id="page" class="fr"></div>
+            </div>
+            <div id="popup" style="display:none;">
+                <form action="" class="layui-form">
+                    <ul class="form-list clearfix">
+                        <li class="layui-inline">
+                            <span class="title-name">动物种类：</span>
+                            <div class="text-input">
+                                <select name="" id="">
+                                    <option value="">全部</option>
+                                    <option value="1">牛</option>
+                                    <option value="2">猪</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">溯源码类型：</span>
+                            <div class="text-input">
+                                <select name="" id="">
+                                    <option value="">全部</option>
+                                    <option value="1">活体溯源码</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li class="layui-inline">
+                            <span class="title-name">申请数量：</span>
+                            <div class="text-input">
+                                <input type="text" class="layui-input">
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- start footer.html-->
+
+<div class="footer">
+    <p>Copyright Jusfoun.com © 2016-2017 河北遵化溯源大数据信息技术有限公司</p>
+    <p>技术支持 九次方大数据信息集团有限公司</p>
+</div>
+<!-- end footer.html-->
+    <script src='../../js/common/jquery.js'></script>
+    <script src='../../libs/layui/layui.js'></script>
+    <script src='../../js/common/common.js'></script>
+    <script src='../../js/sourceCodeManagement/sourceCodeManagement-check.js'></script>
+</body>
